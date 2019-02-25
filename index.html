@@ -1,0 +1,86 @@
+<html>
+<head>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel = "stylesheet" type = "text/css" href = "style.css">    
+</head>
+<body>
+    <h1>Class Olympic Sign Up</h1>
+    
+    <form action="/action_page.php">
+First name: <input type="text" name="FirstName" value=""><br>
+Last name: <input type="text" name="LastName" value=""><br>
+ID:<input type = "text" name = "ID" value = ""><br>
+Grade: <input type = "text" name = "Grade" value = ""><br>
+<input type="submit" value="Submit">
+</form>
+    
+    
+    
+    
+    
+    
+    
+    <label for="events">What event do you want to sign up for?</label>
+    <select name="events">
+        <option value="a">3v3 Basketball</option>
+        <option value="b">3pt Shootout</option>
+        <option value="c">Amazing Race</option>
+        <option value="d">Apples to Apples</option>
+        <option value="e">Black Jack</option>
+        <option value="f">Blindfolded Pictionary</option>
+        <option value="g">Broom Ball</option>
+        <option value="h">Capture the Flag</option>
+        <option value="i">Catchphrase</option>
+        <option value="j">Corn Hole</option>
+        <option value="k">Dodgeball</option>
+        <option value="l">Euchre</option>
+        <option value="m">Flag Football</option>
+        <option value="n">Fortnite</option>
+        <option value="o">Gaga Ball</option>
+        <option value="p">Hide and Seek</option>
+        <option value="q">Hula Hoop</option>
+        <option value="r">Hungry Hungry Hippos Live</option>
+        <option value="s">Jenga</option>
+        <option value="t">Kahoot</option>
+        <option value="u">Kite Flying</option>
+        <option value="v">Madden Challenge</option>
+        <option value="w">Nail Art Contest</option>
+        <option value="x">Name that Tune</option>
+        <option value="y">Ping Pong</option>
+        <option value="z">Putt Putt</option>
+        <option value = "aa">Puzzles</option>
+        <option value = "bb">Quiz Bowl</option>
+        <option value = "cc">Soccer Tennis</option>
+        <option value = "dd">Speed Chess</option>
+        <option value = "ee">Spike Ball</option>
+        <option value = "ff">Spoons</option>
+        <option value = "gg">Street Hockey</option>
+        <option value = "hh">SuperSmashBros-Wii</option>
+        <option value = "ii">Texas Hold Em</option>
+        <option value = "jj">Trapped NV</option>
+        <option value = "kk">Ultimate Frisbee</option>
+        <option value = "ll">Uno</option>
+        <option value = "mm">Volleyball</option>
+        <option value = "nn">Weightlifting</option>
+       </select>
+    <button id = "Submit">Submit Your Answer</button>
+    
+<!--<script>
+    $("button").click(function() {
+        axios.post('/answer',{
+            "tvShow":$("select[name='tvShow']").val()
+        })
+        .then(function(response) {
+            console.log(response);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    });
+</script>-->
+</body>
+</html>
+
+
+ 
