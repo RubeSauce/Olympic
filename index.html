@@ -5,17 +5,21 @@
 <link rel = "stylesheet" type = "text/css" href = "style.css">    
 </head>
 <body>
+    <img src = "olympic.png" align = "right">
     <h1>Class Olympic Sign Up</h1>
+    
+    
+    
     
     <form action="/action_page.php">
 First name: <input type="text" name="FirstName" value=""><br>
 Last name: <input type="text" name="LastName" value=""><br>
-ID:<input type = "text" name = "ID" value = ""><br>
+ID: <input type = "text" name = "ID" value = ""><br>
 Grade: <input type = "text" name = "Grade" value = ""><br>
-<input type="submit" value="Submit">
+<input id = "submit" type="submit" value="Submit">
 </form>
     
-    
+     
     
     
     
@@ -64,8 +68,41 @@ Grade: <input type = "text" name = "Grade" value = ""><br>
         <option value = "mm">Volleyball</option>
         <option value = "nn">Weightlifting</option>
        </select>
-    <button id = "Submit">Submit Your Answer</button>
+    <button id = "answer">Submit Your Answer</button>
     
+    <script>
+    
+      /* axios.get('/movielist')
+       
+        .then(function (response) {
+        
+        console.log(response.data);
+           
+         let $movieList = $("#movies"); 
+         let $movie = []; 
+         response.data.forEach(movie => $movie.push($("<li></li>").text(movie)));
+       $movieList.append($movie);
+    
+        })
+    
+        .catch(function (error) {
+            console.error(error);    
+    });*/
+                 
+    
+   
+    $("submit").click(function() {
+        axios.post('/answer',{
+            "answer":$("input[name='answer']").val()
+        })
+        .then(function(response) {
+            console.log(response);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    });
+</script>
 <!--<script>
     $("button").click(function() {
         axios.post('/answer',{

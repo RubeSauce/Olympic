@@ -1,36 +1,28 @@
+img {
+    align-self: right;
+}
+
+
 body {
    background-color: darkblue;
     color: dodgerblue;  
     border-bottom-color: antiquewhite;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
 }   
 
-
-background-color: antiquewhite;
-    
-    padding: 10px 20px;
-    font-size: 24px;
-    transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-   
-    
-}
-
-
-
-button:hover {
-    background-color: lightgreen;
+#submit {
+    font-size: 20px;
+    border-radius: 12px;
+    background-color: dodgerblue;
     color: white;
-}
+    border: 2px solid #00F5FF ;
+    -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+    }
 
-button:active {
-  background-color: green;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-
-input[type=text],[type=password] {
-width: 97.7%;
+select {
+    width: 25.7%;
 height: 34px;
 padding-left: 5px;
 margin-bottom: 20px;
@@ -40,5 +32,41 @@ border: 2px solid #00F5FF;
 color: #4f4f4f;
 font-size: 16px;
 }
+   
+    
+
+
+button {
+    font-size: 20px;
+    border-radius: 12px;
+    background-color: dodgerblue;
+    color: white;
+    border: 2px solid #00F5FF ;
+    -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+    }
+
+button:hover {
+  background-color: blue; /* Green */
+  color: white;
+}
+
+
+
+
+input[type=text] {
+    
+width: 25.7%;
+height: 34px;
+padding-left: 5px;
+margin-bottom: 20px;
+margin-top: 8px;
+box-shadow: 0 0 5px #00F5FF;
+border: 2px solid #00F5FF;
+color: #4f4f4f;
+font-size: 16px;
+}
+
+
 
 
