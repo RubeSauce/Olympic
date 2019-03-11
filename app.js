@@ -1,87 +1,51 @@
 const express = require('express');
 const app = express();
+const fs = require('fs');
 let students = [];
+let events = [];
 
-fs.readFile('students.json',(err, data) => {
-    students = JSON.parse(data);
-})
+fs.readFile('students.json', async (err, data) => {
+students = await JSON.parse(data);
+});
 
-
-/*if ( $("#username").val()== "" ||  $("#lastname").val() == "" ||  $("#grade").val() == "" {
-                 alert("Please Fill out the Fields");
-                       
-              } else {
-                 // check make sure it checks for the data in the array
-                    First Name = $("#firstname").val();
-                   Last Name = $("#lastname").val();
-                  Grade = $("#grade").val();
-                  
-                  
-                 students =  JSON.parse(localStorage.getItem("students"))
-                  
-                  students.push({
-                     FirstName: FirstName,
-                     LastName: LastName,
-                     Grade: Grade,
-                     
-                  });
-                 
-             })
-       ;   
-     */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- fs.writeFile('students.json',JSON.stringify(students),(err) => {
-        console.log(students)
-        console.warn(err);
-        })
-
-
-
+fs.readFile('events.json', async (err, data) => {
+events = await JSON.parse(data);
+});
 
 
 
 app.use(express.static('public'));
 app.use(express.json());
 
-app.get('/',(req, res) => {
-    res.send('Hello!');
-});
-
 app.post('/answer',(req, res) => {
-    res.send("Thank you for your answer!");
-    console.log(`IP address ${req.ip} voted for ${req.body.tvShow}`);    
-})
+    
+ let events = {
+     "true":true,
+     "event":"event"
+ }
+    
+if (students.some(st => st['Student_Number'] == req.body.Student_Number && st['First_Name'] == req.body.First_Name && st['Last_Name'] == req.body.Last_Name && st['Grade_Level'] == req.body.Grade_Level )) {
+    console.log("yeet");
+    
+    res.send(events);
+
+    
+}
+    else if (students.some(st => st['Student_Number'] != req.body.Student_Number && st['First_Name'] != req.body.First_Name && st['Last_Name'] != req.body.Last_Name && st['Grade_Level'] != req.body.Grade_Level )){
+        console.log("not yeet");
+        
+        
+        
+    }
+    else {
+    console.log(`${req.body.answer}`); 
+    students.push(req.body.answer);
+    console.log(movies);
+        
+    }    
+    
+
+});
 
 app.listen(3000, () => {
     console.log('Server started...');
