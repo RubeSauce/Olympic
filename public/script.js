@@ -4,7 +4,7 @@ $(document).ready(function(){
 $("#eventChoice").hide();
     $("#options").hide();
     $("#answer").hide();
-
+let eventChoice = $("#options option:selected").text();
 
 $("input#submit").click(function(e){
     
@@ -20,7 +20,7 @@ if ( $("#FirstName").val()== "" ||  $("#LastName").val() == "" ||  $("#Grade").v
                  let grade = $("#Grade").val();
                   let id = $("#ID").val();
                   
-                   
+                
                  axios.post('/answer',{
             "First_Name":firstName,
             "Last_Name":lastName,
@@ -29,13 +29,18 @@ if ( $("#FirstName").val()== "" ||  $("#LastName").val() == "" ||  $("#Grade").v
                      
                      
         })
+                    
         .then(function(response) {
      console.log(response.data);
-                     response.data.events.true
-              
-                    $("#eventChoice").show();
+      
+                    
+                     $("#eventChoice").show();
                     $("#options").show();
                     $("#answer").show();
+                    
+     
+              
+                   
                                       
         let $eventList = $("#options"); 
         let $events = []; 
@@ -44,9 +49,39 @@ if ( $("#FirstName").val()== "" ||  $("#LastName").val() == "" ||  $("#Grade").v
                    
             console.log(response);
         }).catch(function(error) {
-            console.log(error);
+                     
+                    if (error.response.status == 404){
+                         console.log(error);
+                    $("#eventChoice").hide();
+                    $("#options").hide();
+                    $("#answer").hide();
+                    alert("Incorrect Information");
+     
+                        }
+                     if (error.response.status == 401){
+                         console.log(error);
+                         alert("Event Already Chosen");
+                     }
+                     if (error.response.status == 400){
+                         console.log(error);
+                         alert("Event is Full");
+                     }
+     
+                 
         }); 
+                  
+                  
                  
              };
  });
+    
+    $("button#answer").click(function(e){
+        let eventChoice = $("#options option:selected").text();
+       
+        axios.post('/event',{ 
+        "Event":eventChoice
+   
+   })
+    });
+   
 });
