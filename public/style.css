@@ -78,8 +78,8 @@ input[type=text] {
 img {
     margin: auto;
     width: 50%;
-    padding-right:353px ;
-    padding-bottom: 125px;
+   
+    float: none;
     }
 
 .center {
